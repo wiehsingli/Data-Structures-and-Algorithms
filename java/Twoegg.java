@@ -13,7 +13,7 @@ public class Twoegg {
         }
         return egg1;
     }
-    /*
+    /**
      * First egg will go up in increments of 10.
      * Once the first egg breaks the second egg will increment from the last 10th increment one by one.
      * Ex. Worst case scenario: floor 99

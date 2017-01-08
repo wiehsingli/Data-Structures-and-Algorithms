@@ -4,7 +4,6 @@
 public class Dashreplacement {
 
     public String solution(String S, int K) {
-//        // write your code in Java SE 8
         String string = noDashes(S);
 
         StringBuilder str = new StringBuilder(string);

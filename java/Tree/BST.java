@@ -22,18 +22,42 @@ public class BST {
      * @param id - desired element to be found
      * @return boolean if element has been found
      */
+//    public boolean find(int id) {
+//        Node current = root;
+//        while (current != null) {
+//            if (current.data == id) {
+//                return true;
+//            } else if (current.data > id) { //data great than n, go left node
+//                current = current.Left;
+//            } else {
+//                current = current.Right;  // data less than n, go right node
+//            }
+//        }
+//        return false;
+//    }
     public boolean find(int id) {
         Node current = root;
-        while (current != null) {
-            if (current.data == id) {
-                return true;
-            } else if (current.data > id) { //data great than n, go left node
-                current = current.Left;
-            } else {
-                current = current.Right;  // data less than n, go right node
-            }
+        if (findNode(id, current)) {
+            System.out.println("Found it!");
+            return true;
+        } else {
+            return false;
         }
-        return false;
+    }
+
+    public boolean findNode(int id, Node current) {
+        System.out.println();
+        System.out.println("Current: " + current.data + "\tTarget: " + id);
+        if (current.data > id) findNode(id, current.Left);
+        else if (current.data < id) findNode(id, current.Right);
+        if(current.data == id){
+            System.out.println("Target Found!");
+            return true;
+        }
+        else{
+            System.out.println("Target Not found");
+            return false;
+        }
     }
 
     /**
@@ -189,23 +213,5 @@ public class BST {
             System.out.print(" " + root.data);
             display(root.Right);
         }
-    }
-
-    public static void main(String[] args) {
-
-        BST tree = new BST();
-        tree.insert(3);tree.insert(8);
-        tree.insert(1);tree.insert(4);tree.insert(6);tree.insert(2);tree.insert(10);tree.insert(9);
-        tree.insert(20);tree.insert(25);tree.insert(15);tree.insert(16);
-        System.out.println("Original Tree : ");
-        tree.display(tree.root);
-        System.out.println("");
-        System.out.println("Check whether Node with value 4 exists : " + tree.find(4));
-        System.out.println("Delete Node with no children (2) : " + tree.delete(2));
-        tree.display(root);
-        System.out.println("\n Delete Node with one child (4) : " + tree.delete(4));
-        tree.display(root);
-        System.out.println("\n Delete Node with Two children (10) : " + tree.delete(10));
-        tree.display(root);
     }
 }
