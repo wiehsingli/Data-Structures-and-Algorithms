@@ -48,16 +48,14 @@ public class BST {
     public boolean findNode(int id, Node current) {
         System.out.println();
         System.out.println("Current: " + current.data + "\tTarget: " + id);
-        if (current.data > id) findNode(id, current.Left);
-        else if (current.data < id) findNode(id, current.Right);
-        if(current.data == id){
-            System.out.println("Target Found!");
+        if (current.Left != null && findNode(id, current.Left)) {
             return true;
         }
-        else{
-            System.out.println("Target Not found");
-            return false;
+        if (current.Right != null && findNode(id, current.Right)) {
+            return true;
         }
+        if(current.data == id) return true;
+        else return false;
     }
 
     /**

@@ -37,7 +37,7 @@ public class Testdata {
 
         System.out.println("Original Tree: ");
         tree.display(tree.root);
-        System.out.println("\nFinding 4: " + tree.find(4));
+        System.out.println("\nFinding 4: " + tree.find(9));
         tree.delete(6);
         System.out.println("Deleting 6: ");
         tree.display(tree.root);
